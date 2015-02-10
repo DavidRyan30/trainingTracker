@@ -1,5 +1,6 @@
 var myApp = angular.module('myApp', ['ngRoute']);
-
+var Firebase = require("firebase");
+var firebaseReference = new Firebase("https://rowint-trainingtrack.firebaseio.com/")
 
 myApp.config(function ($routeProvider) {
     $routeProvider
@@ -90,25 +91,25 @@ myApp.controller('IndividualRowers', function ($scope,$routeParams, $location, S
 
 myApp.factory('SimpleFactory', function () {
         var factory = {};
-        var rowers = [ 
-            {'name' : 'David Ryan','age' : 37,'weight' : 100, 'height': 1.7},
-            {'name' : 'John Finn','age' : 37,'weight' : 95, 'height': 2.2},
-            {'name' : 'Jody Waters', 'age' : 47, 'weight': 100, 'height' : 1.8},
-            {'name' : 'Paddy Kehoe', 'age' : 42, 'weight': 105, 'height' : 1.9}
-        ] 
+        // var rowers = [ 
+        //     {'name' : 'David Ryan','age' : 37,'weight' : 100, 'height': 1.7},
+        //     {'name' : 'John Finn','age' : 37,'weight' : 95, 'height': 2.2},
+        //     {'name' : 'Jody Waters', 'age' : 47, 'weight': 100, 'height' : 1.8},
+        //     {'name' : 'Paddy Kehoe', 'age' : 42, 'weight': 105, 'height' : 1.9}
+        // ] 
 
-        var teams = [
-                {'name' : 'SSD4', 'size' : 4},
-                {'name' : 'Senior Men 8s', 'size' : 8},
-                {'name' : 'Junior Men 8s', 'size' : 8},
-                {'name' : 'Senior Men 4s', 'size' : 4, 'member' : 'dave'},
-            ]
+        // var teams = [
+        //         {'name' : 'SSD4', 'size' : 4},
+        //         {'name' : 'Senior Men 8s', 'size' : 8},
+        //         {'name' : 'Junior Men 8s', 'size' : 8},
+        //         {'name' : 'Senior Men 4s', 'size' : 4, 'member' : 'dave'},
+        //     ]
 
 
 
 
         factory.addTeam = function(team){
-            teams.push({name: team.name, size: team.size, member: team.member})
+            firebaseReference.set({name: team.name, size: team.size, member: team.member})
         }
 
         factory.getTeams = function(){
@@ -128,7 +129,7 @@ myApp.factory('SimpleFactory', function () {
 
 
         factory.addRower = function(rower) {
-             rowers.push({ name: rower.name, age: rower.age, 
+             firebaseReference.set({ name: rower.name, age: rower.age, 
                       weight: rower.weight, height: rower.height })
         }
         factory.updateRower = function(index,rower) {
