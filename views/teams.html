@@ -1,0 +1,18 @@
+
+  <div class="row">
+
+    <div class="col-md-12">
+      <h3>All Teams</h3>   
+      <table class="table table-bordered">
+        <tr><th>Name</th><th>Size</th></tr> 
+              <tr ng-repeat="team in teams" >
+                <td>
+                  {{team.name | uppercase}}
+                </td>
+                <td>
+                  {{team.size}}
+                </td>
+         </tr>
+       </table>
+  </div>
+     </div>

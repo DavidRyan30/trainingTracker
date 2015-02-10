@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col-md-3 col">
+      <h3>Add new team</h3> 
+      <form ng-submit="addTeam()">
+      <div class="form-group">
+          <label for="Name">Name</label>
+          <input type="text" class="form-control" ng-model="newTeam.name" 
+                 placeholder="Enter team name">
+      </div>
+      <div class="form-group">
+          <label for="Size">Size</label>
+          <input type="number" class="form-control" ng-model="newTeam.size" 
+                   placeholder="Enter amount of rowers">
+      </div>
+
+      <div class = "form-group">
+        <select ng-model = "rowers" ng-options="rower.id as rower.name for rower in rowers"></select>
+      </div>
+      <input type="submit" class="btn btn-primary"  value="Submit Form">
+    </form>
+  </div>
+</div>
+

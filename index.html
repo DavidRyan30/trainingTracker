@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular Data</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+<link href="styles/bootstrap.min.css" rel="stylesheet" />
+<link href="styles/custom.css" rel="stylesheet" />
+  
+
+  <script src="js/lib/angular/angular.min.js"></script>
+  <script src="js/lib/angular/angular-route.min.js"></script>
+  <script src="js/lib/angular/angular-animate.min.js"></script>
+
+<script src="./app.js"></script>
+</head>
+<body>  
+  <div id="header">
+    <div class="row" id = "title_bar">
+      <div class="col-md-3">
+        <!-- <div class ="row">
+          <div class="col-md-6" id="cube">&nbsp;</div>
+          <div class="col-md-6" id="cube">&nbsp;</div>  
+        </div>
+        <div class ="row">
+          <div class="col-md-6" id="cube">&nbsp;</div>
+          <div class="col-md-6" id="cube">&nbsp;</div>
+        </div> -->
+      </div>
+      <div class="col-md-6"><p id="site_title"><strong>Rowing Tracker</strong></p></div>
+      <div class="col-md-3">
+        <!-- <div class ="row">
+          <div class="col-md-6" id="cube">&nbsp;</div>
+          <div class="col-md-6" id="cube">&nbsp;</div>  
+        </div>
+        <div class ="row">
+          <div class="col-md-6" id="cube">&nbsp;</div>
+          <div class="col-md-6" id="cube">&nbsp;</div>
+        </div>-->
+      </div>
+    </div>
+</div>
+<div id="content">
+  <div class="view" ng-view></div>
+</div>
+
+<div id="leftbar">
+  <div id="link-buttons"><p id="links"><a href="#/home"><strong>Home</strong></a></p></div>
+  <div id="link-buttons"><p id="links"><a href="#/rowers"><strong>Rowers</strong></a></p></div>
+  <div id="link-buttons"><p id="links"><a href="#/register"><strong>Register</strong></a></p></div>
+    <div id="link-buttons"><p id="links"><a href="#/addteam"><strong>Create Team</strong></a></p></div>
+    <div id="link-buttons"><p id="links"><a href="#/teams"><strong>List Teams</strong></a></p></div>
+
+</div>
+
+</body>
+</html>
