@@ -3,7 +3,7 @@ var myApp = angular.module('myApp', ['ngRoute', 'firebase', 'appControllers']);
 var appControllers = angular.module('appControllers', ['firebase'])
 
 
-var FIREBASE_URL = "https://rowint-trainingtrack.firebaseio.com/"
+//var FIREBASE_URL = "https://rowint-trainingtrack.firebaseio.com/"
 
 myApp.config(function ($routeProvider) {
     $routeProvider
@@ -160,8 +160,6 @@ myApp.config(function ($routeProvider) {
 
 //         return factory;
 //     })
-
-
 
 
 
