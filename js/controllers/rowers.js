@@ -1,18 +1,20 @@
-myApp.controller('RowersController', 
-	function($scope, $firebase){
-	var FIREBASE_URL = "https://rowint-trainingtrack.firebaseio.com/"
-	https://rowint-trainingtrack.firebaseio.com
-	var ref = new Firebase(FIREBASE_URL + 'rowers');
-	var rowers = $firebase(ref);
-	$scope.rowers = rowers.$asObject();
+myApp.controller('RowersController', ['$location','$scope','RowersService',
+	function($location, $scope, RowersService){
+
+	$scope.rowers = RowersService.getRowers();
 
 
 	$scope.addRower = function(){
-		rowers.$push({
+		$scope.rowers = RowersService.addRower();
+
+		$scope.rowers.$push({
 			name: $scope.rowername,
 			weight: $scope.rowerweight,
 			age: $scope.rowerage,
 			height: $scope.rowerheight
 		})
+		$location.path('/rowers')
 	}
-});
+
+	}]);
+
