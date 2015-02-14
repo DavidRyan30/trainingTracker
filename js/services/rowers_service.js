@@ -15,17 +15,8 @@ myApp.factory('RowersService', ['$firebase', function($firebase){
 //Start add rower
 		addRower : function(){
             return rowers
-		 },
-
-//end add rower
-
-//start show individual rower
-    //TODO
-//end individual rower
-      
-//update individual rower
-	//TODO
-//end update individual rower
+		 }
+//End add rowers
 	 }
   return api
 }])

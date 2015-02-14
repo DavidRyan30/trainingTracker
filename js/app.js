@@ -2,9 +2,6 @@
 var myApp = angular.module('myApp', ['ngRoute', 'firebase', 'appControllers']);
 var appControllers = angular.module('appControllers', ['firebase'])
 
-
-//var FIREBASE_URL = "https://rowint-trainingtrack.firebaseio.com/"
-
 myApp.config(function ($routeProvider) {
     $routeProvider
         .when('/teams',
@@ -37,7 +34,13 @@ myApp.config(function ($routeProvider) {
             {
                 controller: 'RowersController',
                 templateUrl: './views/rower_reg.html'
-            })       
+            })
+        .when('trainingsessionmanager',
+            {
+                controller: 'TrainingSessionService'
+                templateUrl: './views/trainingsessionmanager'
+            }
+        )
         .otherwise({ redirectTo: '/home' });
 })
 

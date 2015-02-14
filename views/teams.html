@@ -1,18 +1,25 @@
-
-  <div class="row">
-
-    <div class="col-md-12">
-      <h3>All Teams</h3>   
-      <table class="table table-bordered">
-        <tr><th>Name</th><th>Size</th></tr> 
-              <tr ng-repeat="team in teams" >
+<div class="row">
+    <div class="col-md-4">
+        <h3>All Teams</h3>
+        <table class="table table-bordered">
+            <tr><th>Name</th><th>Size</th><th>Team Members</th></tr>
+            <tr ng-repeat="team in teams" >
                 <td>
-                  {{team.name | uppercase}}
+                    {{team.teamName | uppercase}}
                 </td>
                 <td>
-                  {{team.size}}
+                    {{team.teamSize}}
                 </td>
-         </tr>
-       </table>
-  </div>
-     </div>
+                <td>
+                    <!--This is where the team members will be listed-->
+                    Rowers for each team will go here
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class = "col-md-2"></div>
+    <div class = "col-md-6">
+        <p>Here is where the team manager will go and it will consist of a search and a table of rowers</p>
+
+    </div>
+</div>
