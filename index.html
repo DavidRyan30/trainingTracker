@@ -30,6 +30,7 @@
 <script src="./js/controllers/rowers.js"></script>
 <script src="./js/controllers/teams.js"></script>
 <script src="./js/controllers/training_sessions.js"></script>
+<script src="./js/controllers/status.js"></script>
 
 
 </head>
@@ -44,20 +45,22 @@
     </div>
 </div>
 <div id="content">
+  <div class="rowerInfo"
+          ng-controller="StatusController" ng-show="currentRower">
+      <span class="rower">
+        Hi {{ currentRower.name }}
+        <!--<a href="#" ng-click="logout()">logout</a>-->
+      </span>
+
+  </div>
   <div class="view" ng-view ></div>
 </div>
 
-<div id="leftbar">
-  <div id="link-buttons"><p id="links"><a href="#/login"><strong>Login</strong></a></p></div>
-  <div id="link-buttons"><p id="links"><a href="#/home"><strong>Home</strong></a></p></div>
-  <div id="link-buttons"><p id="links"><a href="#/rowers"><strong>Rowers</strong></a></p></div>
-  <div id="link-buttons"><p id="links"><a href="#/register"><strong>Register</strong></a></p></div>
-  <div id="link-buttons"><p id="links"><a href="#/addteam"><strong>Create Team</strong></a></p></div>
-  <div id="link-buttons"><p id="links"><a href="#/teams"><strong>List Teams</strong></a></p></div>
-  <div id="link-buttons"><p id="links"><a href="#/sessions"><strong>Training Session Manager</strong></a></p></div>
-
+<div ng-include="'views/nav.html'"
+     ng-controller="StatusController">
 
 </div>
+
 
 </body>
 </html>

@@ -10,7 +10,7 @@ myApp.config(function ($routeProvider) {
             })
          .when('/register',
                     {
-                        controller: 'RowersController',
+                        controller: 'AuthController',
                         templateUrl: './views/rower_reg.html'
                     })
         .when('/teams',
