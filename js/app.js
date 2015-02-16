@@ -1,11 +1,11 @@
-var myApp = angular.module('myApp', ['ngRoute', 'firebase', 'appControllers']);
+var myApp = angular.module('myApp', ['ngRoute', 'firebase', 'appControllers']).constant('FIREBASE_URL', 'https://rowint-trainingtrack.firebaseio.com/');
 var appControllers = angular.module('appControllers', ['firebase'])
 
 myApp.config(function ($routeProvider) {
     $routeProvider
         .when('/login',
             {
-                controller: '',
+                controller: 'AuthController',
                 templateUrl: './views/login.html'
             })
          .when('/register',

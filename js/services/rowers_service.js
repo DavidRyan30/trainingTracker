@@ -5,6 +5,7 @@ myApp.factory('RowersService', ['$firebase', function($firebase){
 	var rowers = $firebase(ref);
 
 
+
 	var api = {
 // Start get all rowers
 		getRowers : function() {
@@ -16,7 +17,6 @@ myApp.factory('RowersService', ['$firebase', function($firebase){
 		addRower : function(){
             return rowers
 		 }
-//End add rowers
 	 }
   return api
 }])
