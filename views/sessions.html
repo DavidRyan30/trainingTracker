@@ -1,0 +1,48 @@
+
+<div class="col-md-">
+    <h3>Training Sessions</h3>
+    <table class="table table-bordered">
+        <tr><th>Day</th><th>Distance</th><th>Stroke Rate</th><th>Time</th><th>Test Note</th></tr>
+        <tr ng-repeat="training_session in session" >
+            <td>
+                {{training_session.training_day}}
+            </td>
+            <td>
+                {{training_session.distance}}
+            </td>
+            <td>
+                {{training_session.stroke_rate}}
+            </td>
+            <td>
+                {{training_session.time}}
+            </td>
+            <td>
+                {{training_session.training_note}}
+            </td>
+        </tr>
+    </table>
+
+        <form ng-submit="addTrainingSession()">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <input type="number" class="form-control" ng-model="training_day" placeholder="Enter Training Day">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" ng-model="distance" placeholder="Enter Distance in metres">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" ng-model="stroke_rate" placeholder="Enter average stroke rate">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="time" placeholder="Enter time in minutes and seconds">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" rows="5" ng-model="training_note" placeholder="Enter training session notes">
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary"  value="Save Training Session">
+                </div>
+            </div>
+        </form>
+</div>
+</div>

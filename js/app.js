@@ -1,9 +1,18 @@
-
 var myApp = angular.module('myApp', ['ngRoute', 'firebase', 'appControllers']);
 var appControllers = angular.module('appControllers', ['firebase'])
 
 myApp.config(function ($routeProvider) {
     $routeProvider
+        .when('/login',
+            {
+                controller: '',
+                templateUrl: './views/login.html'
+            })
+         .when('/register',
+                    {
+                        controller: 'RowersController',
+                        templateUrl: './views/rower_reg.html'
+                    })
         .when('/teams',
             {
                 controller: 'TeamsController',
@@ -29,19 +38,12 @@ myApp.config(function ($routeProvider) {
                 controller: 'HomeContentController',
                 templateUrl: './views/welcome.html'
             })
-
-        .when('/register',
+        .when('/sessions',
             {
-                controller: 'RowersController',
-                templateUrl: './views/rower_reg.html'
+                controller: 'TrainingSessionController',
+                templateUrl: './views/sessions.html'
             })
-        .when('trainingsessionmanager',
-            {
-                controller: 'TrainingSessionService'
-                templateUrl: './views/trainingsessionmanager'
-            }
-        )
-        .otherwise({ redirectTo: '/home' });
+        .otherwise({ redirectTo: '/login' });
 })
 
 
