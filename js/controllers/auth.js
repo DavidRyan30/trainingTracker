@@ -4,7 +4,7 @@ myApp.controller('AuthController',
     	$scope.loginRower = function(){
     		AuthService.login($scope.rower)
     			.then(function(rower){
-				$location.path('/rowers')
+				$location.path('/home')
     			}, function(error){
     				$scope.message = error.toString();
     			})
@@ -14,8 +14,7 @@ myApp.controller('AuthController',
     	$scope.register = function(){
     		AuthService.register($scope.rower)
     		.then(function(rower){
-    			AuthService.login($scope.rower)
-    			$location.path('/rowers')
+    			$location.path('/home')
     		}), function(error){
     			$scope.message = error.toString();
     		}

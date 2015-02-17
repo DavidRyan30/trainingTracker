@@ -1,22 +1,17 @@
-myApp.factory('RowersService', ['$firebase', function($firebase){
+myApp.factory('RowersService', ['$firebase', function($firebase, FIREBASE_URL){
+    console.log(FIREBASE_URL);
+	var rowerRef = new Firebase('https://rowint-trainingtrack.firebaseio.com/' + 'rowers');
+	var rowers = $firebase(rowerRef);
+	var rowersObj = $firebase(rowerRef).$asObject();
 
-	var FIREBASE_URL = "https://rowint-trainingtrack.firebaseio.com/"
-	var ref = new Firebase(FIREBASE_URL + 'rowers');
-	var rowers = $firebase(ref);
-
-
-
+	
 	var api = {
 // Start get all rowers
 		getRowers : function() {
-			return rowers.$asObject()
-			},
+			return rowersObj
+			}
 // End get all rowers
 
-//Start add rower
-		addRower : function(){
-            return rowers
-		 }
 	 }
   return api
 }])

@@ -10,7 +10,6 @@ myApp.factory('AuthService', function($firebase, $firebaseSimpleLogin, FIREBASE_
         	        rowerObj.$loaded().then(function(){
         	            $rootScope.currentRower = rowerObj;
 
-        	            console.log($rootScope.currentRower);
         	        });
 
         	        return rowerAuth.$login('password', {
@@ -25,32 +24,46 @@ myApp.factory('AuthService', function($firebase, $firebaseSimpleLogin, FIREBASE_
 
         	    register : function(rower){
         	    return rowerAuth.$createUser(rower.email, rower.password)
-        	    .then(function(regUser){
+        	    .then(function(regRower){
         	        var reference = new Firebase(FIREBASE_URL + 'rowers')
         	        var firebaseRowers = $firebase(reference);
+        	        console.log("name: "+rower.name)
+        	        console.log("Gender: "+rower.gender)
+					console.log("Coach Option: "+rower.coach)
 
+					if(rower.age == null){
+					rower.age=0
+					}
+					if(rower.weight== null){
+						rower.weight=0
+					}
+					if(rower.height== null){
+						rower.height=0
+					}
         	        var rowerInfo = {
-        	           regUser: regUser.uid,
+        	           regRower: regRower.uid,
         	           name: rower.name,
         	           age: rower.age,
         	           weight: rower.weight,
         	           height: rower.height,
-        	           email: rower.email
+        	           email: rower.email,
+        	           gender: rower.gender,
+        	           coach: rower.coach
         	        }
 
-        	        firebaseRowers.$set(regUser.uid, rowerInfo);
+        	        firebaseRowers.$set(regRower.uid, rowerInfo);
         	    });
 
-        	    },
-
-        	    signedIn : function(){
-        	        return rowerAuth.rower != null;
         	    }
+//
+//        	    signedIn : function(){
+//        	        return rowerAuth.rower != null;
+//        	    }
         	}
 
 //        	add signed in function to global or root scope to ensure it is available from the entire site.
-            $rootScope.signedIn = function(){
-                return api.signedIn();
-            }
+//            $rootScope.signedIn = function(){
+//                return api.signedIn();
+//            }
         	return api;
 });
