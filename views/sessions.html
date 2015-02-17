@@ -1,48 +1,59 @@
 
-<div class="col-md-">
+<div class="col-md-12">
     <h3>Training Sessions</h3>
+    <form ng-submit="addTrainingSession()" name="sessionForm">
     <table class="table table-bordered">
         <tr><th>Day</th><th>Distance</th><th>Stroke Rate</th><th>Time</th><th>Test Note</th></tr>
-        <tr ng-repeat="training_session in session" >
-            <td>
-                {{training_session.training_day}}
-            </td>
-            <td>
-                {{training_session.distance}}
-            </td>
-            <td>
-                {{training_session.stroke_rate}}
-            </td>
-            <td>
-                {{training_session.time}}
-            </td>
-            <td>
-                {{training_session.training_note}}
-            </td>
+        <tr ng-repeat="session in sessions">
+        <td>
+        {{session.day}}
+        </td>
+        <td>
+        {{session.distance}}
+        </td>
+        <td>
+        {{session.rate}}
+        </td>
+        <td>
+        {{session.time}}
+        </td>
+        <td>
+        {{session.note}}
+        </td>
+        </tr>
+        <tr>
+
+                <td><input type="number" class="form-control" ng-model="session.day" placeholder="Enter Training Day"></td>
+                <td><input type="number" class="form-control" ng-model="session.distance" placeholder="Enter Distance in metres"></td>
+                <td><input type="number" class="form-control" ng-model="session.rate" placeholder="Enter average stroke rate"></td>
+                <td><input type="text" class="form-control" ng-model="session.time" placeholder="Enter time in minutes and seconds"></td>
+                <td><input type="text" class="form-control" rows="5" ng-model="session.note" placeholder="Enter training session notes"></td>
+                <td><input type="submit" class="btn btn-primary"  value="Save Training Session"></td>
+
         </tr>
     </table>
+    </form>
 
-        <form ng-submit="addTrainingSession()">
-            <div class="col-md-4">
-                <div class="form-group">
-                    <input type="number" class="form-control" ng-model="training_day" placeholder="Enter Training Day">
-                </div>
-                <div class="form-group">
-                    <input type="number" class="form-control" ng-model="distance" placeholder="Enter Distance in metres">
-                </div>
-                <div class="form-group">
-                    <input type="number" class="form-control" ng-model="stroke_rate" placeholder="Enter average stroke rate">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" ng-model="time" placeholder="Enter time in minutes and seconds">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" rows="5" ng-model="training_note" placeholder="Enter training session notes">
-                </div>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-primary"  value="Save Training Session">
-                </div>
-            </div>
-        </form>
-</div>
+        <!--<form ng-submit="addTrainingSession()">-->
+            <!--<div class="col-md-4">-->
+                <!--<div class="form-group">-->
+                    <!--<input type="number" class="form-control" ng-model="training_day" placeholder="Enter Training Day">-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<input type="number" class="form-control" ng-model="distance" placeholder="Enter Distance in metres">-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<input type="number" class="form-control" ng-model="stroke_rate" placeholder="Enter average stroke rate">-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<input type="text" class="form-control" ng-model="time" placeholder="Enter time in minutes and seconds">-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<input type="text" class="form-control" rows="5" ng-model="training_note" placeholder="Enter training session notes">-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<input type="submit" class="btn btn-primary"  value="Save Training Session">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</form>-->
 </div>

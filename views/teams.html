@@ -5,14 +5,15 @@
             <tr><th>Name</th><th>Size</th><th>Team Members</th></tr>
             <tr ng-repeat="team in teams" >
                 <td>
-                    {{team.teamName | uppercase}}
+                    {{team.name | uppercase}}
                 </td>
                 <td>
-                    {{team.teamSize}}
+                    {{team.size}}
                 </td>
                 <td>
-                    <!--This is where the team members will be listed-->
-                    Rowers for each team will go here
+                    <ul>
+                        <li ng-repeat="member in team.members">{{member.name}}</li>
+                    </ul>
                 </td>
             </tr>
         </table>

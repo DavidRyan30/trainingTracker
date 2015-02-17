@@ -5,6 +5,10 @@
 	vertical-align: left;
 }
 
+.table {
+     border-top: 0px;
+ }
+
 .view {
   padding-top: 30px;
   padding-bottom: 20px;
@@ -65,7 +69,7 @@ button {
     width:100%;
     /*min-height: 100%;*/
     /*height: 100% !important; */
-    background-color:#dddddd;
+    background-color:#FFFFD1;
     color:#011323;
     }
 

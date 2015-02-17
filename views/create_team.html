@@ -1,23 +1,44 @@
 <div class="row">
+    <form ng-submit="addTeam()">
     <div class="col-md-3 col">
       <h3>Add new team</h3> 
-      <form ng-submit="addTeam()">
-      <div class="form-group">
+
+      <div>
           <label>Name</label>
-          <input type="text" class="form-control" ng-model="teamName"
+          <input type="text" class="form-control" ng-model="team.name"
                  placeholder="Enter team name">
       </div>
-      <div class="form-group">
-          <label>Size</label>
-          <input type="number" class="form-control" ng-model="teamSize"
-                   placeholder="Enter amount of rowers">
+      <div>
+          <label>Team Size</label>
+          <p>selected item is : {{teamSize}}</p>
+          <select ng-model="team.size">
+              <option ng-repeat="item in team_items" value="{{item}}">{{item}}</option>
+          </select>
+      </div>
+
+    </div>
+      <div class="col-md-1">
+
+      </div>
+
+      <div class="col-md-5">
+          Search: <input ng-model="searchText">
+          <table id="searchTextResults">
+              <tr><th>Name</th></tr>
+              <tr ng-repeat="rower in rowers | filter:searchText">
+                  <td ng-click="addToTeam(rower)">{{rower.name}}</td>
+              </tr>
+          </table>
+          <hr>
+
+          <input type="submit" class="btn btn-primary"  value="Submit Form">
       </div>
 
       <!--<div class = "form-group">-->
         <!--<select ng-model = "rowers" ng-options="rower.id as rower.name for rower in rowers"></select>-->
       <!--</div>-->
-      <input type="submit" class="btn btn-primary"  value="Submit Form">
+
     </form>
-  </div>
+
 </div>
 

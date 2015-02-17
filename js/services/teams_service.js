@@ -11,6 +11,13 @@ myApp.factory('TeamsService', ['$firebase', function($firebase){
 
         addTeam : function(){
         return teams
+        },
+
+        getRowerList : function(){
+               var rowerRef = new Firebase('https://rowint-trainingtrack.firebaseio.com/' + 'rowers');
+               	var rowers = $firebase(rowerRef);
+               	return rowers.$asObject();
+
         }
 
     }

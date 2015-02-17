@@ -1,5 +1,4 @@
 myApp.factory('RowersService', ['$firebase', function($firebase, FIREBASE_URL){
-    console.log(FIREBASE_URL);
 	var rowerRef = new Firebase('https://rowint-trainingtrack.firebaseio.com/' + 'rowers');
 	var rowers = $firebase(rowerRef);
 	var rowersObj = $firebase(rowerRef).$asObject();
