@@ -18,5 +18,9 @@ myApp.controller('StatusController', function(
             $rootScope.currentRower = null;
       })
 
+      $scope.getCurrentRower = function(){
+        return $rootScope.currentRower;
+      }
+
 
 })

@@ -1,7 +1,9 @@
 
 <div class="col-md-12">
     <h3>Training Sessions</h3>
+    <!--<div name="currentUser" ng-controller="StatusController">Current Rower Id: {{ currentRower.regRower }} </div>-->
     <form ng-submit="addTrainingSession()" name="sessionForm">
+        <div name="currentUser" ng-controller="StatusController" ng-model="session.user" value="currentRower.regRower"></div>
     <table class="table table-bordered">
         <tr><th>Day</th><th>Distance</th><th>Stroke Rate</th><th>Time</th><th>Test Note</th></tr>
         <tr ng-repeat="session in sessions">

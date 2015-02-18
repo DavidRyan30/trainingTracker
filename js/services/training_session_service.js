@@ -1,16 +1,20 @@
-myApp.factory('TrainingSessionService', ['$firebase', function($firebase){
+myApp.factory('TrainingSessionService', ['$firebase',  function($firebase, $rootScope){
 
-	var FIREBASE_URL = "https://rowint-trainingtrack.firebaseio.com/sessions"
+	var FIREBASE_URL = "https://rowint-trainingtrack.firebaseio.com/rowers/"
 	var ref = new Firebase(FIREBASE_URL);
 	var session = $firebase(ref);
 
 
 	var api = {
-		getTrainingSessions : function() {
+		getTrainingSessions : function(regRower) {
+			var ref = new Firebase(FIREBASE_URL + regRower + '/sessions/');
+        	var session = $firebase(ref);
 			return session.$asObject()
 			},
 
-		addTrainingSession : function(){
+		addTrainingSession : function(regRower){
+            var ref = new Firebase(FIREBASE_URL + regRower + '/sessions/');
+            var session = $firebase(ref);
             return session
 		 }
 	 }
