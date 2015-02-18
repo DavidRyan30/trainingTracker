@@ -8,9 +8,11 @@ myApp.factory('RowersService', ['$firebase', function($firebase, FIREBASE_URL){
 // Start get all rowers
 		getRowers : function() {
 			return rowersObj
-			}
+			},
 // End get all rowers
-
+        updateRower : function(){
+            return rowers;
+        }
 	 }
   return api
 }])
