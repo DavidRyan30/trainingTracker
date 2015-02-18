@@ -11,7 +11,7 @@ myApp.controller('TrainingSessionController', ['$location','$scope', '$controlle
 
 ////returns all rowers
 	$scope.sessions = TrainingSessionService.getTrainingSessions(user.regRower);
-//getting access to the add trainsession method
+//getting access to the add training_session method
 	$scope.training_session = TrainingSessionService.addTrainingSession(user.regRower);
 ////////////////////////////////////////
     console.log(user.regRower)
