@@ -1,7 +1,51 @@
 var chartApp = angular.module('chartApp', ["highcharts-ng"]);
 
-chartApp.controller('ChartController', function ($scope) {
+chartApp.controller('ChartController', ['$location','$scope', '$controller','$rootScope','ChartAppService',
+                                       	function($location, $scope, $controller, $rootScope, ChartAppService) {
 
+
+
+//initialising an instance of status to gain access to the current user
+     var statusController = $scope.$new();
+     $controller('StatusController', {$scope : statusController});
+     var user = statusController.getCurrentRower();
+////////////////////////////
+      $scope.sessions = ChartAppService.getTrainingSessions(user.regRower);
+      console.log($scope.sessions);
+      $scope.chartSeries =[];
+      $scope.chartXAxis = []
+      $scope.chartXAxisName = ""
+        
+
+     $scope.timeChart = function(){
+      var chartData ={};
+      var timeData = []
+          $scope.sessions.forEach(function(session) {
+            timeData.push(session.time)
+            $scope.chartXAxis.push(session.day)
+    });
+       chartData = {"name": "Time over 2000m", "data": timeData}; 
+       $scope.chartXAxisName = "Training Days"
+        $scope.chartSeries.push(chartData);
+    }  
+
+       $scope.rateChart = function(){
+      var rateData = []
+      var chartData ={}
+          $scope.sessions.forEach(function(session) {
+            rateData.push(session.rate)
+            $scope.chartXAxis.push(session.day)
+    });
+       chartData = {"name": "Stroke Rate", "data": rateData}; 
+       $scope.chartXAxisName = "Training Days"
+        $scope.chartSeries.push(chartData);
+    } 
+
+    $scope.personalBest = function(){
+
+    }                
+
+  // var chartRowingData = chart();
   $scope.chartTypes = [
     {"id": "line", "title": "Line"},
     {"id": "spline", "title": "Smooth line"},
@@ -27,12 +71,12 @@ chartApp.controller('ChartController', function ($scope) {
     {"id": "LongDashDotDot", "title": "LongDashDotDot"}
   ];
 
-  $scope.chartSeries = [
-    {"name": "Some data", "data": [1, 2, 4, 7, 3]},
-    {"name": "Some data 3", "data": [3, 1, null, 5, 2], connectNulls: true},
-    {"name": "Some data 2", "data": [5, 2, 2, 3, 5], type: "column"},
-    {"name": "My Super Column", "data": [1, 1, 2, 3, 2], type: "column"}
-  ];
+  // $scope.chartSeries = [
+  //   chartData
+  //   // {"name": "Some data 3", "data": [3, 1, null, 5, 2], connectNulls: true}
+  //   // {"name": "Some data 2", "data": [5, 2, 2, 3, 5], type: "column"},
+  //   // {"name": "My Super Column", "data": [1, 1, 2, 3, 2], type: "column"}
+  // ];
 
   $scope.chartStack = [
     {"id": '', "title": "No"},
@@ -40,50 +84,11 @@ chartApp.controller('ChartController', function ($scope) {
     {"id": "percent", "title": "Percent"}
   ];
 
-  $scope.addPoints = function () {
-    var seriesArray = $scope.chartConfig.series;
-    var rndIdx = Math.floor(Math.random() * seriesArray.length);
-    seriesArray[rndIdx].data = seriesArray[rndIdx].data.concat([1, 10, 20])
-  };
-
-  $scope.addSeries = function () {
-    var rnd = []
-    for (var i = 0; i < 10; i++) {
-      rnd.push(Math.floor(Math.random() * 20) + 1)
-    }
-    $scope.chartConfig.series.push({
-      data: rnd
-    })
-  }
-
-  $scope.removeRandomSeries = function () {
-    var seriesArray = $scope.chartConfig.series;
-    var rndIdx = Math.floor(Math.random() * seriesArray.length);
-    seriesArray.splice(rndIdx, 1)
-  }
-
-  $scope.removeSeries = function (id) {
-    var seriesArray = $scope.chartConfig.series;
-    seriesArray.splice(id, 1)
-  }
-
-  $scope.toggleHighCharts = function () {
-    this.chartConfig.useHighStocks = !this.chartConfig.useHighStocks
-  }
-
-  $scope.replaceAllSeries = function () {
-    var data = [
-      { name: "first", data: [10] },
-      { name: "second", data: [3] },
-      { name: "third", data: [13] }
-    ];
-    $scope.chartConfig.series = data;
-  };
 
   $scope.chartConfig = {
     options: {
       chart: {
-        type: 'areaspline'
+        type: 'spline'
       },
       plotOptions: {
         series: {
@@ -91,9 +96,21 @@ chartApp.controller('ChartController', function ($scope) {
         }
       }
     },
-    series: $scope.chartSeries,
+     xAxis: {
+        title: {
+            text: $scope.chartXAxisName
+        },
+            
+            categories: $scope.chartXAxis
+        },
+        yAxis: {
+            title: {
+                text: 'Time in Minutes'
+            }
+        },
+        series: $scope.chartSeries,
     title: {
-      text: 'Hello'
+      text: 'Rower Stats'
     },
     credits: {
       enabled: true
@@ -101,10 +118,9 @@ chartApp.controller('ChartController', function ($scope) {
     loading: false,
     size: {}
   }
+  
 
   $scope.reflow = function () {
     $scope.$broadcast('highchartsng.reflow');
   };
-
-
-});
+}]);

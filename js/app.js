@@ -11,6 +11,11 @@ myApp.config(function ($routeProvider) {
                 controller: 'AuthController',
                 templateUrl: './views/login.html'
             })
+        .when('/session_report',
+            {
+                controller: 'ChartController',
+                templateUrl: './views/sessions_report.html'
+            })
          .when('/register',
                     {
                         controller: 'AuthController',
