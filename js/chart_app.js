@@ -18,25 +18,27 @@ chartApp.controller('ChartController', ['$location','$scope', '$controller','$ro
         
 
      $scope.timeChart = function(){
+      $('#t').attr("disabled",true);
       var chartData ={};
       var timeData = []
           $scope.sessions.forEach(function(session) {
             timeData.push(session.time)
             $scope.chartXAxis.push(session.day)
     });
-       chartData = {"name": "Time over 2000m", "data": timeData}; 
+       chartData = {"color": "#f00","name": "Time over 2000m", "data": timeData}; 
        $scope.chartXAxisName = "Training Days"
         $scope.chartSeries.push(chartData);
     }  
 
-       $scope.rateChart = function(){
+    $scope.rateChart = function(){
+      $('#r').attr("disabled",true);
       var rateData = []
       var chartData ={}
           $scope.sessions.forEach(function(session) {
             rateData.push(session.rate)
             $scope.chartXAxis.push(session.day)
     });
-       chartData = {"name": "Stroke Rate", "data": rateData}; 
+       chartData = {"color": "#00f", "name": "Stroke Rate", "data": rateData}; 
        $scope.chartXAxisName = "Training Days"
         $scope.chartSeries.push(chartData);
     } 
@@ -86,6 +88,7 @@ chartApp.controller('ChartController', ['$location','$scope', '$controller','$ro
 
 
   $scope.chartConfig = {
+    backgroundColor: null,
     options: {
       chart: {
         type: 'spline'

@@ -1,7 +1,7 @@
 .nav{
 	background-color: black;
 	color:white;
-	font-weight: 18px;
+	font-weight: 14px;
 	vertical-align: left;
 }
 
@@ -12,6 +12,13 @@
 .view {
   padding-top: 30px;
   padding-bottom: 20px;
+
+}
+body{
+  width: 100%;
+  background-color:#fff;
+  background: url("../images/bg_image.jpg") no-repeat center center fixed;
+  background-size: cover;
 
 }
 
@@ -63,13 +70,11 @@ button {
   #content {
     position:absolute;
     top: 60px;
-    bottom: 0;
     margin-right: 24%;
     padding-left: 30%;
     width:100%;
-    /*min-height: 100%;*/
-    /*height: 100% !important; */
-    background-color:#FFFFD1;
+    min-height: 100%;
+    height: 100% !important;
     color:#011323;
     }
 
@@ -78,14 +83,14 @@ button {
       padding-left: 20px;
       padding-bottom: 5px;
       color: #aaa;
-      font-size: 20px;
+      font-size: 14px;
     }
     /* unvisited link */
 a:link {
     color: white;
 }
 #link-buttons{
-  background-color: #517BA0;
+  background-color: #444;
   margin-left: 10px;
   margin-right: 20px;
   margin-top: 20px;
@@ -108,19 +113,29 @@ a:hover {
 a:active {
     color: white;
 }
+
+#session_list{
+  color: #000;
+  box-shadow: 2px 2px 3px rgba(100, 100, 100, .5);
+  background: #777;
+  opacity: 0.85;
+  font-weight: normal;
+}
   #leftbar {
-      position: absolute;
+      position: fixed;
       top: 0px;
-      bottom: 0;
+      min-height: 100%;
+      height: 100% !important;
       left: 0;
       width: 15%;
-      /*height: 100%;*/
-      background: #1A446A;
+      background: #777;
       font-weight: 18px;
       color: white;
+      box-shadow: 2px 2px 3px rgba(100, 100, 100, .5);
+      opacity: 0.75;
     }
     #nav-style{
-      background-color: #011323;
+      background-color: #444;
       vertical-align: center;
       padding: 10px;
     }

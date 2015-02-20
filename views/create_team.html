@@ -1,5 +1,5 @@
 <div class="row">
-    <form ng-submit="addTeam()">
+    <form ng-submit="addTeam()" id="session_list">
     <div class="col-md-3 col">
       <h3>Add new team</h3> 
 
@@ -10,28 +10,28 @@
       </div>
       <div>
           <label>Team Size</label>
-          <p>selected item is : {{teamSize}}</p>
-          <select ng-model="team.size">
-              <option ng-repeat="item in team_items" value="{{item}}">{{item}}</option>
-          </select>
-      </div>
+            <select ng-options="k as v for (k,v) in team_items" ng-model="team.size">
+              <option value="">Select Size</option>
+            </select>
 
+<!--               <select ng-options="item in team_items" ng-model="team.size"></select>
+ -->      </div>
+      <div> <p>You must save your team first and then add the members</p></div>
+
+      <div><input type="submit" class="btn btn-primary" ng-init="button=true" ng-click="button=false" value="Save Team"></div>
+          
     </div>
       <div class="col-md-1">
 
       </div>
 
       <div class="col-md-5">
-          Search: <input ng-model="searchText">
-          <table id="searchTextResults">
+          <table id="teamMembers">
               <tr><th>Name</th></tr>
               <tr ng-repeat="rower in rowers | filter:searchText">
                   <td ng-click="addToTeam(rower)">{{rower.name}}</td>
               </tr>
           </table>
-          <hr>
-
-          <input type="submit" class="btn btn-primary"  value="Submit Form">
       </div>
 
       <!--<div class = "form-group">-->

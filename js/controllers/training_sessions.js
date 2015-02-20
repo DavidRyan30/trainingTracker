@@ -14,6 +14,7 @@ myApp.controller('TrainingSessionController', ['$location','$scope', '$controlle
 //getting access to the add training_session method
 	$scope.training_session = TrainingSessionService.addTrainingSession(user.regRower);
 ////////////////////////////////////////
+
     console.log(user.regRower)
 	$scope.addTrainingSession = function(){
     		$scope.training_session.$push({
