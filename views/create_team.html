@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" ng-controller="TeamsController">
     <form ng-submit="addTeam()" id="session_list">
     <div class="col-md-3 col">
       <h3>Add new team</h3> 
@@ -14,31 +14,21 @@
               <option value="">Select Size</option>
             </select>
 
-<!--               <select ng-options="item in team_items" ng-model="team.size"></select>
- -->      </div>
-      <div> <p>You must save your team first and then add the members</p></div>
-
-      <div><input type="submit" class="btn btn-primary" ng-init="button=true" ng-click="button=false" value="Save Team"></div>
-          
+     </div>     
     </div>
       <div class="col-md-1">
 
       </div>
+          <div class="col-md-5">     
+        <p>Rower Menu</p>
 
-      <div class="col-md-5">
-          <table id="teamMembers">
-              <tr><th>Name</th></tr>
-              <tr ng-repeat="rower in rowers | filter:searchText">
-                  <td ng-click="addToTeam(rower)">{{rower.name}}</td>
-              </tr>
-          </table>
+          <div><input type="submit" class="btn btn-primary" value="Save Team"></div>
       </div>
-
-      <!--<div class = "form-group">-->
-        <!--<select ng-model = "rowers" ng-options="rower.id as rower.name for rower in rowers"></select>-->
-      <!--</div>-->
-
     </form>
+      <div ng-repeat="rower in rowers">
+          <p>{{rower.name}} <button ng-click="addToTeam(rower)"><span class="glyphicon glyphicon-plus"></span> Add to Team</button>
+          </p>
+      </div>
 
 </div>
 

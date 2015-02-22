@@ -1,8 +1,6 @@
 
-
 var myApp = angular.module('myApp', ['ngRoute', 'firebase', 'appControllers', 'chartApp']).constant('FIREBASE_URL', 'https://rowint-trainingtrack.firebaseio.com/');
 var appControllers = angular.module('appControllers', ['firebase'])
-
 
 myApp.config(function ($routeProvider) {
     $routeProvider

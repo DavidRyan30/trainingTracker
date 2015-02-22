@@ -4,7 +4,7 @@ myApp.controller('TeamsController', ['$location','$scope','TeamsService',
 
 	$scope.team_items = { '2': 'Two', '4': 'Four','8': 'Eight'};
 
-	var teamMembers =[]
+	var teamMembers ={}
 //returns all rowers
 	$scope.teams = TeamsService.getTeams();
 
@@ -12,8 +12,7 @@ myApp.controller('TeamsController', ['$location','$scope','TeamsService',
 //	console.log($scope.rowers)
 
 	$scope.addToTeam=function(rower){
-		
-		teamMembers.push(rower);
+		teamMembers.push({"name": rower.regRower, "data": rower});
 	}
 //start add rower
 	$scope.addTeam = function(){
@@ -21,8 +20,7 @@ myApp.controller('TeamsController', ['$location','$scope','TeamsService',
 		$scope.teams.$push({
 		   name: $scope.team.name,
 		   size: $scope.team.size,
-		   // members: teamMembers
-		})
-		// .then($location.path('/teams'))
+		   members: teamMembers
+		}).then($location.path('/teams'))
 	}
 }])
