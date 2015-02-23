@@ -19,13 +19,23 @@ myApp.controller('RowersController', ['$location', '$firebase', '$scope','$route
 
 
 ///////////////////////
+// $scope.formData = new Firebase('https://rowint-trainingtrack.firebaseio.com/rowers/'+$routeParams.regRower)
+// console.log($scope.formData.name)
 
+
+    // $scope.rower = RowersService.getARower($routeParams.rower_index)
+    // console.log($routeParams.rower_index)
+    // console.log($scope.rower)
+    $scope.rowerDets =function(){
+        $scope.rower = RowersService.getARower($routeParams.rower_index)
+        console.log($routeParams.rower_index)
+        console.log($scope.rower)
+    }
 
 //update individual rower
     $scope.updateRower = function(){
-       var firebaseRef = new Firebase('https://rowint-trainingtrack.firebaseio.com/rowers/'+$routeParams.regRower);
-
-
+ 
+       var firebaseRef = new Firebase('https://rowint-trainingtrack.firebaseio.com/rowers/'+$routeParams.rower_index);
         firebaseRef.update(
             {
                 name: $scope.rower.detail.name,
@@ -47,7 +57,9 @@ myApp.controller('RowersController', ['$location', '$firebase', '$scope','$route
         var teams = TeamsService.getTeams();
     }
 ////////////////////
-
+    $scope.go = function ( path ) {
+  $location.path( path );
+        };
 
 }]);
 

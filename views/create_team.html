@@ -1,34 +1,47 @@
 <div class="row" ng-controller="TeamsController">
-    <form ng-submit="addTeam()" id="session_list">
+    
+     
     <div class="col-md-3 col">
-      <h3>Add new team</h3> 
-
-      <div>
-          <label>Name</label>
-          <input type="text" class="form-control" ng-model="team.name"
-                 placeholder="Enter team name">
+         
+    </div>
+      <div class="col-md-6" id="session_list">
+        <form ng-submit="addTeam()" name="team_reg">
+           <h3>Add new crew</h3>
+          <div>
+          <label>Crew Name *</label>
+          <input type="text" class="form-control" ng-model="team.name" ng-required="true"
+                 placeholder="Required : Enter team name">
       </div>
+      <br>
       <div>
-          <label>Team Size</label>
-            <select ng-options="k as v for (k,v) in team_items" ng-model="team.size">
+          <label>Crew Size *</label>
+            <select ng-options="k as v for (k,v) in team_items" ng-model="team.size" ng-required="true">
               <option value="">Select Size</option>
             </select>
+      </div> 
+      <br>
+               <div>
+            <label>Crew Catagory *</label>
+            <select ng-model="team.catagory" text="Select Catagory" ng-required="true">
+              <option ng-repeat="catagory in team_catagories"> {{catagory}}</option>
+            </select>
+          </div> 
 
-     </div>     
-    </div>
-      <div class="col-md-1">
+      <br>
+            <div>
+              <label>Crew Gender *</label>
+                  <label><input type="radio" name="gender" value="mens" ng-model="team.gender" ng-checked="true"/>Mens</label>
+                  <label><input type="radio" name="gender" value="womens" ng-model="team.gender"/>Womens</label>
+          </div>
+          <br>  
+          <div><input type="submit" class="btn btn-primary" value="Save Team" ng-disabled="team_reg.$invalid"></div> 
+          <br>
+          <p>* Denotes a required field</p>
 
       </div>
-          <div class="col-md-5">     
-        <p>Rower Menu</p>
+          <div class="col-md-3"> 
 
-          <div><input type="submit" class="btn btn-primary" value="Save Team"></div>
-      </div>
+
     </form>
-      <div ng-repeat="rower in rowers">
-          <p>{{rower.name}} <button ng-click="addToTeam(rower)"><span class="glyphicon glyphicon-plus"></span> Add to Team</button>
-          </p>
-      </div>
-
 </div>
 

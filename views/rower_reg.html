@@ -30,7 +30,6 @@
                   <label><input type="radio" name="gender" value="male" ng-model="rower.gender" ng-checked="true"/>Male</label>
                   <label><input type="radio" name="gender" value="female" ng-model="rower.gender"/>Female</label>
           </div>
-          <div>currently selected:  {{rower.gender}}</div>
     </div>
     <div class = "col-md-1">
 
@@ -53,7 +52,7 @@
                    placeholder="Enter height">
       </div>
 
-      <div class=form-group">
+      <div class=form-group>
           <label class="checkbox">
               <input type="checkbox" name="coach" ng-model="rower.coach" ng-true-value="true" ng-false-value="false"> Check to give the registered user admin or coach privileges.
           </label>
