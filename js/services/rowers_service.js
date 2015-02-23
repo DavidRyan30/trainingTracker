@@ -12,6 +12,13 @@ myApp.factory('RowersService', ['$firebase', function($firebase, FIREBASE_URL){
 // End get all rowers
         updateRower : function(){
             return rowers;
+        },
+        getARower : function(regRower){
+        	 console.log(regRower)
+        	 var firebaseReference = new Firebase('https://rowint-trainingtrack.firebaseio.com/rowers/'+regRower) 
+        	 var rower = $firebase(firebaseReference)
+        	 console.log(rower.name)
+        	 return rower.$asObject;
         }
 	 }
   return api

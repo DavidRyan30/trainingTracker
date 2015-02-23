@@ -1,8 +1,9 @@
 <div class="row">
-    <div class="col-md-6">
-        <h3>All Teams</h3>
+    <div class = "col-md-2"></div>
+    <div class="col-md-8">
+        <h3>All Crews</h3>
         <table class="table table-bordered" id="session_list">
-            <tr><th>Name</th><th>Size</th><th>Team Members</th></tr>
+            <tr><th>Name</th><th>Size</th><th>Crew Members</th><th>Gender</th><th></th></tr>
             <tr ng-repeat="team in teams" >
                 <td>
                     {{team.name | uppercase}}
@@ -11,13 +12,19 @@
                     {{team.size}}
                 </td>
                 <td>
-
+                    {{team.catagory}}
                 </td>
+                <td>
+                    {{team.gender}}
+                </td>
+                <td>
+                    <button class="btn btn-sm" >Open Team Manager</button>
+                </td>  
             </tr>
         </table>
     </div>
-    <div class = "col-md-1"></div>
-    <div class = "col-md-5">
+    
+    <div class = "col-md-2">
 
     </div>
 </div>
