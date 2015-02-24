@@ -1,0 +1,17 @@
+
+	<div class="row" id="session_list">
+		<div class="col-md-5" >
+			<p>Team Name: {{team.name}}</p>
+			<p>Team Catagory: {{team.catagory}}</p>
+			<p>Team Gender: {{team.gender}}</p>
+			<p>Team Size: {{team.size}}</p>
+			<p><b>Team Members: </b></p>
+			<p ng-repeat="member in team.members">{{member}}</p>
+		</div>
+		<div class="col-md-1">
+		<!-- Space -->
+		</div>
+		<div class="col-md-4">
+			<p ng-repeat="member in possibleMembers">{{member.name}} <button class="btn" ng-click="addToTeam(team, member)" id="{{member.$id}}">Add to Team</button></p>
+		</div>
+	</div>

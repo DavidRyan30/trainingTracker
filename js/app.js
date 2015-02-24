@@ -15,14 +15,19 @@ myApp.config(function ($routeProvider) {
                 templateUrl: './views/sessions_report.html'
             })
          .when('/register',
-                    {
-                        controller: 'AuthController',
-                        templateUrl: './views/rower_reg.html'
-                    })
+            {
+                controller: 'AuthController',
+                templateUrl: './views/rower_reg.html'
+            })
         .when('/teams',
             {
                 controller: 'TeamsController',
                 templateUrl: './views/teams.html'
+            })
+        .when('/team_manager/:team_index',
+            {
+                controller: 'TeamsController',
+                templateUrl: './views/team_manager.html'
             })
         .when('/addteam',
             {
@@ -34,11 +39,11 @@ myApp.config(function ($routeProvider) {
                 controller: 'RowersController',
                 templateUrl: './views/rowers.html'
             })
-        .when('/rowers/:rower_index',
-                {
-                    controller: 'RowersController',
-                    templateUrl: './views/rower_edit.html'
-                })
+        .when('/rowers/:rower_id',
+            {
+                controller: 'RowersController',
+                templateUrl: './views/rower_edit.html'
+            })
         .when('/home',
             {
                 controller: 'HomeContentController',

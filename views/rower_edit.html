@@ -1,22 +1,22 @@
-<div class="row" data-ng-init="rowerDets()">
+<div class="row">
     <div class="col-sm-4 col-sm-offset-3" id="session_list">
       <h3>Update Rower Details</h3> 
           <form ng-submit="updateRower()">
           <div class="form-group">
               <label>Name</label>
-              <input type="text" class="form-control" ng-model="rower.detail.name" value="rower.name">{{rower.name}}</input>
+              <input type="text" class="form-control" ng-model="rower.name">
           </div>
           <div class="form-group">
               <label>Age</label>
-              <input type="text" class="form-control" ng-model="rower.detail.age" >
+              <input type="text" class="form-control" ng-model="rower.age" >
           </div>
           <div class="form-group">
               <label>Weight</label>
-              <input type="number" class="form-control" ng-model="rower.detail.weight" >
+              <input type="number" class="form-control" ng-model="rower.weight" >
           </div>
           <div class="form-group">
               <label>Height</label>
-              <input type="decimal" class="form-control" ng-model="rower.detail.height" >
+              <input type="decimal" class="form-control" ng-model="rower.height" >
           </div>
           <input type="submit" class="btn btn-primary"  value="Apply changes">
         </form>

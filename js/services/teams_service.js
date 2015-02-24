@@ -3,6 +3,9 @@ myApp.factory('TeamsService', ['$firebase', function($firebase){
     var ref = new Firebase(FIREBASE_URL + 'teams');
     var teams = $firebase(ref);
 
+    var rowerRef = new Firebase('https://rowint-trainingtrack.firebaseio.com/rowers');
+    var rowers = $firebase(rowerRef);
+
    var api={
 
         getTeams : function(){
@@ -14,9 +17,24 @@ myApp.factory('TeamsService', ['$firebase', function($firebase){
         },
 
         getRowerList : function(){
-               var rowerRef = new Firebase('https://rowint-trainingtrack.firebaseio.com/' + 'rowers');
-               var rowers = $firebase(rowerRef);
+               
                return rowers.$asObject();
+        },
+
+        getTeamArray : function(){
+          return teams.$asArray();
+        },
+
+         getRowerArray : function(){
+          return rowers.$asArray();
+        },
+        addMembers : function(team){
+         var ref = new Firebase('https://rowint-trainingtrack.firebaseio.com/teams/'+team.$id+'/members/');
+
+         console.log(ref.toString())
+          // var ref = new Firebase(FIREBASE_URL +'teams/'+ team + '/members/');
+          var members = $firebase(ref);
+          return members
         }
 
     }
