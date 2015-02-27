@@ -1,6 +1,6 @@
 myApp.controller('StatusController', function(
        $location, $scope, $rootScope, $firebaseSimpleLogin, AuthService, $firebase, FIREBASE_URL){
-
+      $rootScope.foo='bar'
        $scope.logout = function(){
         AuthService.logout();
         $location.path('/login')

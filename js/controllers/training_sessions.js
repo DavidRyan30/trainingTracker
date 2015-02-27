@@ -1,12 +1,14 @@
 myApp.controller('TrainingSessionController', ['$location','$scope', '$controller','$rootScope','TrainingSessionService',
 	function($location, $scope, $controller, $rootScope, TrainingSessionService){
 
+        console.log($rootScope.currentRower.regRower)
 
+        var user = $rootScope.currentRower
 
     //initialising an instance of status to gain access to the current user
-    var statusController = $scope.$new();
-    $controller('StatusController', {$scope : statusController});
-    var user = statusController.getCurrentRower();
+    // var statusController = $scope.$new();
+    // $controller('StatusController', {$scope : statusController});
+    // var user = statusController.getCurrentRower();
     ////////////////////////
 
 ////returns all rowers

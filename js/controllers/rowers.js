@@ -6,6 +6,9 @@ myApp.controller('RowersController', ['$location', '$firebase', '$scope','$route
     $scope.rower
 
 
+    
+
+
 
     $scope.setEdit = function(rower_id){
         
