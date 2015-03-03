@@ -1,5 +1,13 @@
+  <div class ="row" ng-hide="signedIn()" >
+    <div class= "col-md-2"></div>
+    <div class= "col-md-5" id="session_list">
+          <h1>You are not logged in</h1>
+    <p>You must <a href="#/login"><strong>Login</strong></a> to access this page</p>
+    </div>
+    <div class= "col-md-2"></div>
 
-<div class = "row">
+  </div>
+<div class = "row" ng-show="signedIn()" id="session_list">
 	<div class ="col-md-1"></div>
 	<div class ="col-md-10">
 		<h2>Welcome to the Rower Tracker</h2>

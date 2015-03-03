@@ -1,13 +1,8 @@
-myApp.controller('RowersController', ['$location', '$firebase', '$scope','$routeParams','RowersService', 'TeamsService',
-	function($location, $firebase, $scope, $routeParams, RowersService, TeamsService){
-
+myApp.controller('RowersController', ['$location', '$rootScope', '$firebase', '$scope','$routeParams','RowersService', 'TeamsService',
+	function($location, $rootScope, $firebase, $scope, $routeParams, RowersService, TeamsService){
 //returns all rowers
 	$scope.rowers = RowersService.getRowers();
     $scope.rower
-
-
-    
-
 
 
     $scope.setEdit = function(rower_id){

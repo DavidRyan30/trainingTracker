@@ -1,9 +1,15 @@
-
-<div class="col-md-12">
+  <div class ="row" ng-hide="signedIn()" >
+    <div class= "col-md-2"></div>
+    <div class= "col-md-5" id="session_list">
+          <h1>You are not logged in</h1>
+    <p>You must <a href="#/login"><strong>Login</strong></a> to access this page</p>
+    </div>
+    <div class= "col-md-2"></div>
+  </div>
+<div class="row">
+<div class="col-md-12" ng-show="signedIn()">
     <h3>Training Sessions</h3>
-<!--     <div name="currentUser" ng-controller="StatusController">
-        Current Rower Id: {{ currentRower.regRower }} </div>
- -->    <form ng-submit="addTrainingSession()" name="sessionForm">
+   <form ng-submit="addTrainingSession()" name="sessionForm">
         <div name="currentUser" ng-controller="StatusController" ng-model="session.user" value="currentRower.regRower">
                 <a href="#/session_report">
                       <button class="btn btn-primary"> See Training Session Report</button>
@@ -41,5 +47,6 @@
     </table>
     </form>
 
+</div>
 </div>
 

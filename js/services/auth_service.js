@@ -5,8 +5,9 @@ myApp.factory('AuthService', function($firebase, $firebaseSimpleLogin, FIREBASE_
 
     var api ={
         login : function(rower){
-            var rowerRef = new Firebase(FIREBASE_URL + 'rowers/' + rower.uid);
+            var rowerRef = new Firebase(FIREBASE_URL + 'rowers/' + rower.$id);
             var rowerObj = $firebase(rowerRef).$asObject();
+
             rowerObj.$loaded().then(function(){
                 $rootScope.currentRower = rowerObj;
 
@@ -21,13 +22,11 @@ myApp.factory('AuthService', function($firebase, $firebaseSimpleLogin, FIREBASE_
         logout : function(){
             return rowerAuth.$logout();
         },
-
         register : function(rower){
         return rowerAuth.$createUser(rower.email, rower.password)
         .then(function(regRower){
             var reference = new Firebase('https://rowint-trainingtrack.firebaseio.com/rowers')
             var firebaseRowers = $firebase(reference);
-            console.log(rower)
             if(rower.coach==null){
                 rower.coach=false
             }
@@ -44,7 +43,7 @@ myApp.factory('AuthService', function($firebase, $firebaseSimpleLogin, FIREBASE_
             if(rower.height== null){
                 rower.height=0
             }
-            console.log(rower)
+          
             var rowerInfo = {
                regRower: regRower.uid,
                name: rower.name,
@@ -58,8 +57,14 @@ myApp.factory('AuthService', function($firebase, $firebaseSimpleLogin, FIREBASE_
             firebaseRowers.$set(regRower.uid, rowerInfo);
         });
 
+    },
+    signedIn : function(){
+        return $rootScope.currentRower !=null
     }
 
    }
+       $rootScope.signedIn = function(){
+        return api.signedIn();
+    }
    return api;
 });

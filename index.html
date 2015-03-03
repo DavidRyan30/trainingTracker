@@ -48,30 +48,13 @@
     <script src="https://cdn.firebase.com/js/simple-login/1.6.2/firebase-simple-login.js"></script>
 </head>
 <body>
-<!--   <div id="header">
-    <div class="row" id = "title_bar">
-      <div class="col-md-3">
-      </div>
-      <div class="col-md-6"><p id="site_title"><strong>Rowing Tracker</strong></p></div>
-      <div class="col-md-3">
-      </div>
-    </div>
-</div> -->
-<div id="content">
-<!--   <div class="rowerInfo"
-          ng-controller="StatusController" ng-show="currentRower">
-      <span class="rower">
-        Hi {{ currentRower.name }}
-        <a href="#" ng-click="logout()">logout</a>
-      </span>
 
-  </div> -->
+<div id="content">
   <div class="view" ng-view ></div>
 </div>
 
 <div ng-include="'views/nav.html'"
      ng-controller="StatusController">
-
 </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

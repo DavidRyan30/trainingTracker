@@ -96,7 +96,6 @@ myApp.controller('TeamsController', ['$location','$scope', '$rootScope', 'TeamsS
 		}
 		
 		$scope.addToTeam = function(team, member){
-			// $(member.$id).attr("disabled",true);
 			var index = $scope.possibleMembers.indexOf(member)
 			$scope.possibleMembers.splice(index, 1)
 			var members = TeamsService.addMembers(team)
